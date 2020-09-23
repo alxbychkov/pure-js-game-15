@@ -1,0 +1,81 @@
+:root {
+    --imageWidth: 398px;
+    --rows: 3;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main#app {
+    display: flex;
+    justify-content: center;
+    padding: 40px 10px;
+}
+#game {
+    max-width: 400px;
+}
+#size {
+    padding-bottom: 25px;
+}
+#scroll {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 10px;
+    background: #D0D0D0;
+    border-radius:10px;
+    outline : none;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #8AC858;
+    cursor: pointer;
+}
+#field {
+    width: 100%;
+    border: 1px solid #8AC858;
+    background-color: #D0D0D0;
+    border-radius: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.field-item {
+    overflow: hidden;
+    width: calc(var(--imageWidth) / var(--rows));
+    height: calc(var(--imageWidth) / var(--rows));
+    border: 1px solid #D8FFBC;
+    border-radius: 3px;
+    position: relative;
+    flex-basis: calc(100% / var(--rows));
+    min-height: auto;
+    // background-image: url(http://cs.pikabu.ru/images/jobseeker/logo2.png);
+    background-image: url(assets/garry_new.jpg);
+    background-size: var(--imageWidth);
+    transition: bounce .4s;
+}
+.field-item.last {
+    background-image: none;
+    background-color: transparent;
+}
+@keyframes bounce { 
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-5px); }
+    20% { transform: translateX(5px); }
+    30% { transform: translateX(-4); }
+    40% { transform: translateX(4px); }
+    50% { transform: translateX(-5px); }
+    60% { transform: translateX(5px); }
+    70% { transform: translateX(-3px); }
+    80% { transform: translateX(3px); }
+    90% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+.field-item.bounce {
+    animation: bounce 0.6s;
+    animation-direction: alternate;
+}
