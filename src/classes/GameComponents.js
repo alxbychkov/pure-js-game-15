@@ -16,9 +16,9 @@ export class Size extends GameComponent {
         input.type = 'range'
         input.name = 'scroll'
         input.id = 'scroll'
-        input.value = '3'
-        input.min = '2'
-        input.max = '5'
+        input.value = '6'
+        input.min = '5'
+        input.max = '10'
         this.input = input
         return wrapComponent(this.selector, input)
     }
